@@ -8,7 +8,3 @@ var entity = genericMethod.Invoke(json, null);
 //And Here we should call our Generic DataContext Method
 //For example in this manner:
 GetByReflection(this, GetEntityType(modelName).AssemblyQualifiedName, "Remove", _context, entity );
-        
-        
-        
-      
