@@ -59,7 +59,7 @@
                 _context.Add(newEntity);
                 _context.SaveChanges();
 
-                Id = (uint) prop.GetValue(newEntity) ;
+                Id = (uint) prop.GetValue(newEntity);
             }
             
             var query = _context.Set<T>().AsQueryable();
