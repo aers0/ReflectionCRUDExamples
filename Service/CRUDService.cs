@@ -112,12 +112,14 @@
               
             return await InvokeByReflection(jsonType.AssemblyQualifiedName, methodName,  entity );
         }
+        
         Task<object> InvokeByReflection(string modelName, string methodName, params object[] param)
         {
             var method = typeof(ManageService).GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
             var generic = method.MakeGenericMethod(Type.GetType(modelName));
             return generic.InvokeAsync(this, param);
         }
+        
         void WriteProperties(object values, object entity)
         {
             foreach (var property in values.GetType().GetProperties().Where(p => p.CanWrite))
@@ -144,6 +146,5 @@
                 .Distinct();
         }
         #endregion Helpers
-
     }
 }
